@@ -138,7 +138,7 @@ var CONTACT_EMAIL = "cassidysilva.chosen@gmail.com";
 var QUIZ = { step: 0, need: null, state: null, age: null };
 var NEED_HINTS = { family: 'Protect income for the people who count on you.', retirement: 'Turn savings into income you can count on.', rollover: 'Old 401(k)? Let us map the options together.', legacy: 'Leave it the way you want, to the people you want.' };
 var AGE_LINES = { 'Under 30': 'Starting early is usually your biggest advantage.', '30s': 'This is when a lot of families lock in coverage while costs are still lower.', '40s': 'You still have time to build a solid plan, and the details matter more now.', '50s': 'Retirement timing and final costs start to shape the plan.', '60+': 'Legacy and final expenses are usually the focus here.' };
-var LICENSED_STATES = ['California','Washington','Hawaii','Indiana','Ohio','Georgia'];
+var LICENSED_STATES = ['California','Washington','Hawaii','Indiana','Ohio','Georgia','Texas'];
 var NEEDS = [
   { id: "family", label: "My family's future, if something happens to me",
     text: "For protecting your family, most people start with term life \u2014 it covers the years your family depends on your income, and it costs less than most people think. The right amount depends on your income, your debts, and how many years your family would need support." },
@@ -149,7 +149,7 @@ var NEEDS = [
   { id: "legacy", label: "Leaving money behind the right way",
     text: "Leaving money behind the right way usually means permanent coverage \u2014 whole life or universal life \u2014 set up so it goes where you want, the way you want. We'll design it around your family, not a template." }
 ];
-var QUIZ_STATES = ["California","Washington","Hawaii","Indiana","Ohio","Georgia","Somewhere else"];
+var QUIZ_STATES = ["California","Washington","Hawaii","Indiana","Ohio","Georgia","Texas","Somewhere else"];
 var QUIZ_AGES = ["Under 30","30s","40s","50s","60+"];
 function quizOpt(label, fn){ return '<button class="quiz-opt" onclick="' + fn + '">' + label + '<span class="arr">\u2192</span></button>'; }
 function progressBar(step){ return '<div class="quiz-bar"><span style="width:' + (step * 33) + '%"></span></div>'; }
@@ -172,7 +172,7 @@ function renderQuiz(){
     h += '<button class="quiz-back" onclick="quizBack()">\u2190 Back</button></div>';
   } else {
     var n = NEEDS.filter(function(x){ return x.id === QUIZ.need; })[0];
-    var stateLine = (LICENSED_STATES.indexOf(QUIZ.state) >= 0) ? 'Good news: I am licensed in ' + QUIZ.state + '.' : 'I am licensed in California, Washington, Hawaii, Indiana, Ohio, and Georgia. If you are outside those states, I will still point you in the right direction.';
+    var stateLine = (LICENSED_STATES.indexOf(QUIZ.state) >= 0) ? 'Good news: I am licensed in ' + QUIZ.state + '.' : 'I am licensed in California, Washington, Hawaii, Indiana, Ohio, Georgia, and Texas. If you are outside those states, I will still point you in the right direction.';
     h += '<div class="quiz-result quiz-anim"><div class="quiz-chips"><span class="quiz-chip">' + n.label + '</span><span class="quiz-chip">' + QUIZ.state + '</span><span class="quiz-chip">' + QUIZ.age + '</span></div><h3 class="serif">Here\u2019s where I\u2019d start.</h3><p>'+n.text+'</p><p>' + AGE_LINES[QUIZ.age] + ' ' + stateLine + '</p>';
     h += '<p>Tell me where to reach you and I will walk you through it personally, no bots, no call centers.</p>';
     h += '<label for="q-name">Your name</label><input id="q-name" type="text" placeholder="Jane Doe">';
@@ -204,7 +204,7 @@ renderQuiz();
 </div>
 <footer><div class="wrap">
 <p><strong>Chosen Agency</strong> &mdash; Cassidy Silva. Born and raised in Hawai&lsquo;i, now in Hilo.</p>
-<p>Licensed in California, Washington, Hawai&lsquo;i, Indiana, Ohio, and Georgia.</p>
+<p>Licensed in California, Washington, Hawai&lsquo;i, Indiana, Ohio, Georgia, and Texas.</p>
 <p>Contact: <a href="mailto:cassidysilva.chosen@gmail.com">cassidysilva.chosen@gmail.com</a> &middot; <a href="tel:+12064866135">206.486.6135</a> &middot; <a href="https://www.instagram.com/cassidy_silva_">@cassidy_silva_</a></p>
 <p>General education only &mdash; not a quote, an offer, or tax or legal advice. Details vary by carrier, product, and state.</p>
 </div></footer>
