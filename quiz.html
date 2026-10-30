@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Your Fit | 3-Question Life Insurance Quiz | Cassidy Silva</title>
-<meta name="description" content="Answer three short questions about what you're trying to protect, where you live, and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
+<title>Find Your Fit | 2-Question Life Insurance Quiz | Cassidy Silva</title>
+<meta name="description" content="Answer two short questions about what you're trying to protect and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
 <link rel="canonical" href="https://www.cassidysilva.life/quiz.html">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Find Your Fit | 3-Question Life Insurance Quiz | Cassidy Silva">
-<meta property="og:description" content="Answer three short questions about what you're trying to protect, where you live, and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
+<meta property="og:title" content="Find Your Fit | 2-Question Life Insurance Quiz | Cassidy Silva">
+<meta property="og:description" content="Answer two short questions about what you're trying to protect and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
 <meta property="og:url" content="https://www.cassidysilva.life/quiz.html">
 <meta property="og:image" content="https://www.cassidysilva.life/hero.jpg">
 <meta property="og:site_name" content="Cassidy Silva">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Find Your Fit | 3-Question Life Insurance Quiz | Cassidy Silva">
-<meta name="twitter:description" content="Answer three short questions about what you're trying to protect, where you live, and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
+<meta name="twitter:title" content="Find Your Fit | 2-Question Life Insurance Quiz | Cassidy Silva">
+<meta name="twitter:description" content="Answer two short questions about what you're trying to protect and your age. Get a plain-English starting point and a personal follow-up from Cassidy.">
 <meta name="theme-color" content="#4f7fa3">
 <style>:root{--bg:#edf1f4;--card:#fbfcfd;--ink:#2c3844;--muted:#64727e;--blue:#4f7fa3;--blue-deep:#2f4f68;--ice:#c9dcea;--eye:#6fa8d0;--line:#d7e0e7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -135,10 +135,10 @@ footer p{margin-bottom:8px}footer a{color:var(--blue)}
 
 <script>
 var CONTACT_EMAIL = "cassidysilva.chosen@gmail.com";
-var QUIZ = { step: 0, need: null, state: null, age: null };
+var QUIZ = { step: 0, need: null, age: null };
 var NEED_HINTS = { family: 'Protect income for the people who count on you.', retirement: 'Turn savings into income you can count on.', rollover: 'Old 401(k)? Let us map the options together.', legacy: 'Leave it the way you want, to the people you want.' };
 var AGE_LINES = { 'Under 30': 'Starting early is usually your biggest advantage.', '30s': 'This is when a lot of families lock in coverage while costs are still lower.', '40s': 'You still have time to build a solid plan, and the details matter more now.', '50s': 'Retirement timing and final costs start to shape the plan.', '60+': 'Legacy and final expenses are usually the focus here.' };
-var LICENSED_STATES = ['California','Washington','Hawaii','Indiana','Ohio','Georgia','Texas'];
+
 var NEEDS = [
   { id: "family", label: "My family's future, if something happens to me",
     text: "For protecting your family, most people start with term life, it covers the years your family depends on your income, and it costs less than most people think. The right amount depends on your income, your debts, and how many years your family would need support." },
@@ -149,31 +149,27 @@ var NEEDS = [
   { id: "legacy", label: "Leaving money behind the right way",
     text: "Leaving money behind the right way usually means permanent coverage, whole life or universal life, set up so it goes where you want, the way you want. We'll design it around your family, not a template." }
 ];
-var QUIZ_STATES = ["California","Washington","Hawaii","Indiana","Ohio","Georgia","Texas","Somewhere else"];
+
 var QUIZ_AGES = ["Under 30","30s","40s","50s","60+"];
 function quizOpt(label, fn){ return '<button class="quiz-opt" onclick="' + fn + '">' + label + '<span class="arr">\u2192</span></button>'; }
-function progressBar(step){ return '<div class="quiz-bar"><span style="width:' + (step * 33) + '%"></span></div>'; }
+function progressBar(step){ return '<div class="quiz-bar"><span style="width:' + (step * 50) + '%"></span></div>'; }
 function quizOptCard(label, hint, fn){ return '<button class="quiz-opt" onclick="' + fn + '">' + label + '<span class="arr">\u2192</span><small>' + hint + '</small></button>'; }
 function renderQuiz(){
   var box = document.getElementById('quizbox'); var h = '';
   if (QUIZ.step === 0){
-    h += '<div class="quiz-anim"><div class="quiz-q serif">Find your fit.</div><p class="quiz-sub">Answer 3 quick questions and I will give you a plain English starting point, not a sales pitch.</p><button class="quiz-start" onclick="quizStart()">Start the quiz</button><p class="fine">Takes about 30 seconds. Your answers stay between you and me.</p></div>';
+    h += '<div class="quiz-anim"><div class="quiz-q serif">Find your fit.</div><p class="quiz-sub">Answer 2 quick questions and I will give you a plain English starting point, not a sales pitch.</p><button class="quiz-start" onclick="quizStart()">Start the quiz</button><p class="fine">Takes about 30 seconds. Your answers stay between you and me.</p></div>';
   } else if (QUIZ.step === 1){
-    h += '<div class="quiz-anim">' + progressBar(1) + '<div class="quiz-progress">QUESTION 1 OF 3</div><div class="quiz-q serif">What are you trying to protect?</div><p class="quiz-sub">Pick the one that feels closest. There is no wrong answer here.</p>';
+    h += '<div class="quiz-anim">' + progressBar(1) + '<div class="quiz-progress">QUESTION 1 OF 2</div><div class="quiz-q serif">What are you trying to protect?</div><p class="quiz-sub">Pick the one that feels closest. There is no wrong answer here.</p>';
     NEEDS.forEach(function(n,i){ h += quizOptCard(n.label, NEED_HINTS[n.id], "quizSetNeed("+i+")"); });
     h += '</div>';
   } else if (QUIZ.step === 2){
-    h += '<div class="quiz-anim">' + progressBar(2) + '<div class="quiz-progress">QUESTION 2 OF 3</div><div class="quiz-q serif">What state do you live in?</div><p class="quiz-sub">This matters because I am licensed in specific states.</p>';
-    QUIZ_STATES.forEach(function(s){ h += quizOpt(s, "quizSetState('"+s+"')"); });
-    h += '<button class="quiz-back" onclick="quizBack()">\u2190 Back</button></div>';
-  } else if (QUIZ.step === 3){
-    h += '<div class="quiz-anim">' + progressBar(3) + '<div class="quiz-progress">QUESTION 3 OF 3, ALMOST THERE</div><div class="quiz-q serif">What decade are you in?</div><p class="quiz-sub">Age changes the starting point, not your worthiness for coverage.</p>';
+    h += '<div class="quiz-anim">' + progressBar(2) + '<div class="quiz-progress">QUESTION 2 OF 2, ALMOST THERE</div><div class="quiz-q serif">What decade are you in?</div><p class="quiz-sub">Age changes the starting point, not your worthiness for coverage.</p>';
     QUIZ_AGES.forEach(function(a){ h += quizOpt(a, "quizSetAge('"+a+"')"); });
     h += '<button class="quiz-back" onclick="quizBack()">\u2190 Back</button></div>';
   } else {
     var n = NEEDS.filter(function(x){ return x.id === QUIZ.need; })[0];
-    var stateLine = (LICENSED_STATES.indexOf(QUIZ.state) >= 0) ? 'Good news: I am licensed in ' + QUIZ.state + '.' : 'I am licensed in California, Washington, Hawaii, Indiana, Ohio, Georgia, and Texas. If you are outside those states, I will still point you in the right direction.';
-    h += '<div class="quiz-result quiz-anim"><div class="quiz-chips"><span class="quiz-chip">' + n.label + '</span><span class="quiz-chip">' + QUIZ.state + '</span><span class="quiz-chip">' + QUIZ.age + '</span></div><h3 class="serif">Here\u2019s where I\u2019d start.</h3><p>'+n.text+'</p><p>' + AGE_LINES[QUIZ.age] + ' ' + stateLine + '</p>';
+
+    h += '<div class="quiz-result quiz-anim"><div class="quiz-chips"><span class="quiz-chip">' + n.label + '</span><span class="quiz-chip">' + QUIZ.age + '</span></div><h3 class="serif">Here\u2019s where I\u2019d start.</h3><p>'+n.text+'</p><p>' + AGE_LINES[QUIZ.age] + ' ' + stateLine + '</p>';
     h += '<p>Tell me where to reach you and I will walk you through it personally, no bots, no call centers.</p>';
     h += '<label for="q-name">Your name</label><input id="q-name" type="text" placeholder="Jane Doe">';
     h += '<label for="q-contact">Phone or email</label><input id="q-contact" type="text" placeholder="How do I reach you?">';
@@ -185,10 +181,10 @@ function renderQuiz(){
   box.innerHTML = h;
 }
 function quizSetNeed(i){ QUIZ.need = NEEDS[i].id; QUIZ.step = 2; renderQuiz(); }
-function quizSetState(s){ QUIZ.state = s; QUIZ.step = 3; renderQuiz(); }
-function quizSetAge(a){ QUIZ.age = a; QUIZ.step = 4; renderQuiz(); }
+
+function quizSetAge(a){ QUIZ.age = a; QUIZ.step = 3; renderQuiz(); }
 function quizStart(){ QUIZ.step = 1; renderQuiz(); }
-function quizRestart(){ QUIZ = { step: 0, need: null, state: null, age: null }; renderQuiz(); }
+function quizRestart(){ QUIZ = { step: 0, need: null, age: null }; renderQuiz(); }
 function quizBack(){ if (QUIZ.step > 0){ QUIZ.step--; renderQuiz(); } }
 function quizSubmit(){
   var name = document.getElementById('q-name').value.trim();
@@ -196,7 +192,7 @@ function quizSubmit(){
   if (!name || !contact){ alert("Add your name and a way to reach you."); return; }
   var n = NEEDS.filter(function(x){ return x.id === QUIZ.need; })[0];
   var subject = encodeURIComponent("Quiz lead: " + name);
-  var body = encodeURIComponent("Name: " + name + "\nContact: " + contact + "\nNeeds: " + n.label + "\nState: " + QUIZ.state + "\nAge: " + QUIZ.age);
+  var body = encodeURIComponent("Name: " + name + "\nContact: " + contact + "\nNeeds: " + n.label + "\nAge: " + QUIZ.age);
   window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
 }
 renderQuiz();
@@ -204,9 +200,9 @@ renderQuiz();
 </div>
 <footer><div class="wrap">
 <p>Cassidy Silva. Partnered with Chosen Agency. Born and raised in Hawaii, now in Hilo.</p>
-<p>Licensed in California, Washington, Hawai&lsquo;i, Indiana, Ohio, Georgia, and Texas.</p>
+<p>Based in Hawai&lsquo;i, serving clients nationwide.</p>
 <p>Contact: <a href="mailto:cassidysilva.chosen@gmail.com">cassidysilva.chosen@gmail.com</a> &middot; <a href="tel:+12064866135">206.486.6135</a> &middot; <a href="https://www.instagram.com/cassidy_silva_">@cassidy_silva_</a></p>
-<p><a href="privacy.html">Privacy Policy</a></p><p>General education only, not a quote, an offer, or tax or legal advice. Details vary by carrier, product, and state.</p>
+<p><a href="privacy.html">Privacy Policy</a></p><p>General education only, not a quote, an offer, or tax or legal advice. Details vary by carrier and product.</p>
 </div></footer>
 </body>
 </html>
