@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cassidysilva.life/sitemap.xml
+Sitemap: https://www.cassidysilva.life/sitemap.xml
